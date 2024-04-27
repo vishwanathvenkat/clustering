@@ -1,10 +1,9 @@
 from typing import Any
-from utils import generate_color_codes
 import matplotlib.pyplot as plt
 
 class Plotter():
     def __init__(self, num_clusters, xLabel, yLabel, title):
-            self.colors = generate_color_codes(num_clusters)
+            self.colors = self.generate_color_codes(num_clusters)
             self.xLabel = xLabel
             self.yLabel = yLabel
             self.title = title
@@ -16,3 +15,22 @@ class Plotter():
             plt.xlabel(self.xLabel)
             plt.ylabel(self.yLabel)
         plt.show()
+
+    def generate_color_codes(self, num_clusters):
+        """
+        Generates a list of random color code strings in various formats (hex, rgb)
+
+        Args:
+            num_clusters: The number of random color codes to generate.
+
+        Returns:
+            A list of random color code strings.
+        """
+        color_codes = []
+        for _ in range(num_clusters):
+            # Random choice between using hex or rgb format
+
+            # Generate random RGB values (between 0 and 1)
+            color_code = (random.random(), random.random(), random.random())
+            color_codes.append(color_code)
+        return color_codes
